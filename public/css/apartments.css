@@ -4,22 +4,42 @@
 
 /* Page Header */
 .page-header {
-    padding: 130px 0 50px;
-    background: var(--dark);
+    background: linear-gradient(90deg, #15251f 0%, #1a2f2a 36%, #1d312d 100%);
     color: #ffffff;
-    text-align: center;
+    padding: 170px 0 90px;
+    min-height: 540px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.page-header .container {
+    width: 100%;
+}
+
+.page-header .label-small {
+    display: inline-block;
+    color: var(--terracotta);
+    margin-bottom: 26px;
+    letter-spacing: 0.18em;
 }
 
 .page-header h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(40px, 5.5vw, 68px);
+    font-size: clamp(72px, 8vw, 220px);
+    line-height: 0.78;
+    letter-spacing: -0.06em;
     font-weight: 400;
-    margin: 8px 0 12px;
+    margin: 0 0 22px;
+    max-width: 1380px;
+    text-align: left;
 }
 
 .page-header p {
-    font-size: 15px;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(18px, 2vw, 30px);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.3;
+    margin: 0;
 }
 
 /* Filter Bar */
@@ -244,12 +264,38 @@
 }
 
 @media (max-width: 900px) {
+    .page-header {
+        min-height: 440px;
+        padding-top: 150px;
+    }
+
     .apt-grid {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 600px) {
+    .page-header {
+        min-height: 390px;
+        padding-top: 130px;
+        padding-bottom: 60px;
+    }
+
+    .page-header .label-small {
+        margin-bottom: 16px;
+        letter-spacing: 0.12em;
+    }
+
+    .page-header h1 {
+        font-size: clamp(52px, 21vw, 110px);
+        line-height: 0.9;
+        margin-bottom: 14px;
+    }
+
+    .page-header p {
+        font-size: 22px;
+    }
+
     .apt-grid {
         grid-template-columns: 1fr;
     }

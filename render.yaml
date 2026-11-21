@@ -1,0 +1,61 @@
+databases:
+  - name: velora-homes-db
+    databaseName: velora_homes
+    user: velora_homes
+    plan: free
+    region: singapore
+
+services:
+  - type: web
+    name: velora-homes
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /up
+    envVars:
+      - key: PORT
+        value: "80"
+      - key: APP_NAME
+        value: Velora Homes
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        sync: false
+      - key: APP_URL
+        value: https://velora-homes.onrender.com
+      - key: DB_CONNECTION
+        value: pgsql
+      - key: DB_HOST
+        fromDatabase:
+          name: velora-homes-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: velora-homes-db
+          property: port
+      - key: DB_DATABASE
+        fromDatabase:
+          name: velora-homes-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: velora-homes-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: velora-homes-db
+          property: password
+      - key: SESSION_DRIVER
+        value: database
+      - key: CACHE_STORE
+        value: database
+      - key: QUEUE_CONNECTION
+        value: database
+      - key: LOG_CHANNEL
+        value: stderr
+      - key: LOG_LEVEL
+        value: info
