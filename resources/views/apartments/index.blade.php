@@ -10,9 +10,11 @@
 @section('content')
 
 <div class="page-header">
-    <span class="label-small" style="color:var(--terracotta)">Available Listings in Gujarat</span>
-    <h1>Find Your Ideal Home</h1>
-    <p>{{ $apartments->count() }} home{{ $apartments->count() !== 1 ? 's' : '' }} available across Gujarat</p>
+    <div class="container">
+        <span class="label-small">Available Listings in Gujarat</span>
+        <h1>Find Your Ideal Home</h1>
+        <p>{{ $apartments->count() }} home{{ $apartments->count() !== 1 ? 's' : '' }} available across Gujarat</p>
+    </div>
 </div>
 
 <div class="filter-bar">
